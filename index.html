@@ -354,6 +354,117 @@
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
+
+      #prompter-wrap {
+        min-height: calc(100vh - 52px - 80px);
+      }
+
+      @media (max-width: 980px) {
+        #toolbar {
+          flex-wrap: wrap;
+          height: auto;
+          padding: 8px 12px;
+          gap: 10px;
+          justify-content: space-between;
+        }
+
+        .toolbar-group {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        #btn-play,
+        #btn-stop {
+          flex: 1;
+        }
+
+        .toolbar-info {
+          width: 100%;
+          text-align: right;
+          font-size: 0.7rem;
+        }
+      }
+
+      @media (max-width: 720px) {
+        #stage {
+          min-height: calc(100vh - 52px - 120px);
+        }
+
+        #prompter-text {
+          font-size: clamp(18px, 6vw, 36px);
+          padding: 30px 20px;
+        }
+
+        #script-bar {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 6px;
+        }
+
+        #script {
+          height: 100px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #toolbar {
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        #toolbar .sep {
+          display: none;
+        }
+
+        .toolbar-group {
+          font-size: 0.75rem;
+        }
+
+        #btn-play,
+        #btn-stop {
+          width: 100%;
+        }
+
+        #prompter-text {
+          font-size: clamp(16px, 7vw, 28px);
+          padding: 20px 14px;
+        }
+
+        #script-bar {
+          position: sticky;
+          bottom: 0;
+          padding-bottom: 14px;
+          background: linear-gradient(
+            180deg,
+            rgba(14, 14, 20, 0) 0%,
+            rgba(14, 14, 20, 0.95) 60%
+          );
+        }
+
+        #script {
+          height: 120px;
+          font-size: 0.9rem;
+        }
+      }
+
+      #script {
+        min-height: 80px;
+        overflow: auto;
+      }
+
+      @media (max-width: 660px) {
+        #stage {
+          min-height: 50vh;
+        }
+
+        #script-bar {
+          min-height: 100px;
+        }
+
+        #script {
+          font-size: 0.9rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -365,7 +476,7 @@
       <div class="sep"></div>
 
       <div class="toolbar-group">
-        Speed (<span id="speed-val">2</span>):
+        <span> Speed (<span id="speed-val">2</span>): </span>
         <input type="range" id="speed" min="0" max="10" value="2" step="1" />
       </div>
 
